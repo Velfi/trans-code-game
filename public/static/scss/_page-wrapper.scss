@@ -1,0 +1,32 @@
+body {
+  font-family: $body-font;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $black;
+  color: $blue;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $title-font;
+}
+
+.flag-bar {
+  width: 100%;
+  color: $black;
+  padding: 1em 3em;
+  margin: 1em 0;
+}
+
+.header, .footer {
+  background-color: $blue;
+}
+
+.sub-header, .instructions {
+  background-color: $pink;
+}
+
+#phaser {
+  margin: 1em 0;
+}

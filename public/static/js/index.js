@@ -1,5 +1,4 @@
-
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { create: create, update: update, render: render });
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser', { create: create, update: update, render: render });
 
 function create() {
 
