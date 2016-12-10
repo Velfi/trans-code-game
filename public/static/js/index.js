@@ -19,16 +19,12 @@ var selectedGemTween;
 var tempShiftedGem = null;
 var allowInput;
 
-function preload() {
-    game.load.spritesheet("GEMS", "tileset.png", GEM_SIZE, GEM_SIZE);
-}
-
 // Example by https://twitter.com/awapblog
 
 function preload() {
 
-    game.load.spritesheet("GEMS", "tileset.png", GEM_SIZE, GEM_SIZE);
-    game.load.image('mockup_background', 'mockup_game_screen.png')
+    game.load.spritesheet("GEMS", "images/tileset.png", GEM_SIZE, GEM_SIZE);
+    game.load.image('mockup_background', 'images/mockup_game_screen.png')
 
 }
 
@@ -419,9 +415,8 @@ function killDeadGems() {
                 if (canKill)
                 {
                     removeKilledGems();
-                    var dropGemDuration = dropGems();
                     // delay board refilling until all existing gems have dropped down
-                    game.time.events.add(dropGemDuration * 100, refillBoard);
+                    refillBoard();
                 }
             }
         }
