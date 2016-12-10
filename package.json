@@ -2,10 +2,27 @@
   "name": "Transcode-Game",
   "version": "0.0.1",
   "private": true,
+  "description": "",
+  "main": "index.js",
   "dependencies": {
     "express": "^4.14.0"
   },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Velfi/trans-code-game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Velfi/trans-code-game/issues"
+  },
+  "homepage": "https://github.com/Velfi/trans-code-game#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.0.0"
   }
 }
