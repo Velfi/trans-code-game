@@ -1,8 +1,10 @@
 {
-  "name": "Elastic-Beanstalk-Sample-App",
+  "name": "Transcode-Game",
   "version": "0.0.1",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.14.0"
+  },
   "scripts": {
     "start": "node app.js"
   }
