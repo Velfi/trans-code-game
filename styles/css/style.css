@@ -1,2 +1,26 @@
 body {
-  color: blue; }
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000000;
+  color: #94c8b9; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "Lora", serif; }
+
+.flag-bar {
+  width: 100%;
+  color: #000000;
+  padding: 1em 3em;
+  margin: 1em 0; }
+
+.header, .footer {
+  background-color: #94c8b9; }
+
+.sub-header, .instructions {
+  background-color: #f15365; }
+
+#phaser {
+  margin: 1em 0; }
