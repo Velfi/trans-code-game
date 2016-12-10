@@ -47,3 +47,17 @@ Put stylesheets and sass inside the `public/static/style` directory
 
 Put static image assets inside the `public/static/images` directory
 
+# Proposal 
+
+## Purpose
+* On top of a puzzle game, create an environment which allows for free experimentation of appearance, and normalizes it changing on a regular basis in a variety of situations.  This is done by presenting regular opportunities to recreate the appearance of thier avatar at every level, within a range of scenarios.  
+
+## Mechanics
+* Bejeweled game clone
+* Match clothing 
+* Multiple levels
+* Avatar customization at each level
+
+## User Stories
+* Those who may be questionning
+* 
