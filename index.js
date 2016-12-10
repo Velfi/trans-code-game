@@ -113,7 +113,7 @@ function spawnBoard() {
     {
         for (var j = 0; j < BOARD_ROWS; j++)
         {
-            var gem = gems.create(i * GEM_SIZE_SPACED + X_OFFSET, j * GEM_SIZE_SPACED + Y_OFFSET, "GEMS");
+            var gem = gems.create(i * GEM_SIZE_SPACED, j * GEM_SIZE_SPACED, "GEMS");
             gem.name = 'gem' + i.toString() + 'x' + j.toString();
             gem.inputEnabled = true;
             gem.events.onInputDown.add(selectGem, this);
@@ -382,6 +382,52 @@ function dropGems() {
 
 }
 
+function killDeadGems() {
+    for (var i = 0; i < BOARD_COLS; i++)
+    {
+        for (var j = BOARD_ROWS - 1; j >= 0; j--)
+        {
+            var gem = getGem(i, j);
+            selectedGem = gem;
+
+            if (gem !== null)
+            {
+                var canKill = false;
+
+                // process the selected gem
+
+                var countUp = countSameColorGems(selectedGem, 0, -1);
+                var countDown = countSameColorGems(selectedGem, 0, 1);
+                var countLeft = countSameColorGems(selectedGem, -1, 0);
+                var countRight = countSameColorGems(selectedGem, 1, 0);
+
+                var countHoriz = countLeft + countRight + 1;
+                var countVert = countUp + countDown + 1;
+
+                if (countVert >= MATCH_MIN)
+                {
+                    killGemRange(selectedGem.posX, selectedGem.posY - countUp, selectedGem.posX, selectedGem.posY + countDown);
+                    canKill = true;
+                }
+
+                if (countHoriz >= MATCH_MIN)
+                {
+                    killGemRange(selectedGem.posX - countLeft, selectedGem.posY, selectedGem.posX + countRight, selectedGem.posY);
+                    canKill = true;
+                }
+
+                if (canKill)
+                {
+                    removeKilledGems();
+                    var dropGemDuration = dropGems();
+                    // delay board refilling until all existing gems have dropped down
+                    game.time.events.add(dropGemDuration * 100, refillBoard);
+                }
+            }
+        }
+    }
+}
+
 // look for any empty spots on the board and spawn new gems in their place that fall down from above
 function refillBoard() {
 
@@ -415,7 +461,6 @@ function refillBoard() {
 
 // when the board has finished refilling, re-enable player input
 function boardRefilled() {
-
+    killDeadGems();
     allowInput = true;
-
 }
